@@ -1,0 +1,22 @@
+PROJETO 33 — CENTRAL DE TREINAMENTO
+
+Os dois projetos já estão incluídos neste pacote:
+33.1 = primeiro anexo (index(1).html): Duelo de Caçadores.
+33.2 = segundo anexo (m52-memory-master(1).zip): M52 Memory Master.
+
+COMO ABRIR
+1. Extraia o ZIP inteiro para uma pasta.
+2. Abra o index.html da pasta principal.
+3. Escolha o projeto na interface preta e dourada.
+4. Use o botão Projetos para voltar à seleção.
+
+GITHUB PAGES
+Envie o CONTEÚDO EXTRAÍDO para a raiz do repositório: index.html,
+portal.js, projeto-33-1, projeto-33-2 e .nojekyll.
+Envie todas as pastas e os arquivos internos; enviar apenas o HTML
+principal ou o ZIP não publica os dois projetos completos.
+Em Settings > Pages, use Deploy from a branch, main e /(root).
+
+Os jogos mantêm as funções dos anexos. O duelo do Projeto 33.1 é local,
+no mesmo aparelho. O M52 inclui suas imagens locais e o treino de 26 cartas.
+O modo PWA do M52 funciona quando publicado por HTTPS ou em localhost.

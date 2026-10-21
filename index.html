@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090909">
+<meta name="description" content="Escolha entre o Duelo de Caçadores e o M52 Memory Master. Dois projetos de memorização em um portal preto e dourado.">
+<title>Projeto 33 · Central de Treinamento</title>
+<style>
+:root{color-scheme:dark;--black:#090909;--gold:#dab56f;--light:#f5e7c6;--muted:#b6ad9d}
+*{box-sizing:border-box}
+body{margin:0;color:var(--light);background:var(--black);font-family:Arial,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 2%,#9b702922,transparent 50%),radial-gradient(ellipse at 2% 85%,#a87c1b12,transparent 45%);z-index:-1}
+a,button,input{font:inherit}
+button,a,input::file-selector-button{touch-action:manipulation}
+button,a{-webkit-tap-highlight-color:transparent}
+button{cursor:pointer}
+a{color:inherit}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #ffe3a5;outline-offset:5px}
+button:disabled{opacity:.4;cursor:not-allowed}
+.topbar{width:min(1180px,calc(100% - 48px));margin:auto;min-height:100px;display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid #d9b4681f}
+.brand{display:flex;align-items:center;gap:17px;text-decoration:none}
+.mark{height:39px;width:39px;border:1px solid var(--gold);transform:rotate(45deg);display:grid;place-items:center;box-shadow:0 0 30px #bd90241c}
+.mark span{transform:rotate(-45deg);font:bold 19px Georgia;color:var(--gold)}
+.brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:3px;margin-bottom:6px}
+.brand strong{font-size:13px;letter-spacing:4px;font-weight:500}
+.top-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+.quiet,.outline{padding:11px 15px;border-radius:7px;border:1px solid #d9b46838;background:transparent;color:var(--light);font-size:12px}
+.quiet{border-color:transparent;color:var(--muted)}
+.outline:hover{background:#d9b46812;border-color:#d9b46890}
+main{width:min(1120px,calc(100% - 48px));margin:auto}
+.hero{text-align:center;padding:68px 0 0}
+.eyebrow{font-size:10px;letter-spacing:4px;color:var(--gold);margin:0 0 22px;display:flex;align-items:center;justify-content:center;gap:14px}
+.eyebrow:before,.eyebrow:after{content:"";height:1px;width:38px;background:linear-gradient(90deg,transparent,var(--gold))}
+.eyebrow:after{transform:rotate(180deg)}
+h1{font:400 clamp(42px,6vw,76px)/1.06 Georgia,serif;letter-spacing:-2px;margin:0}
+h1 em{font-style:normal;color:var(--gold);background:linear-gradient(110deg,#90703c,#fff0c1 50%,#b88d40);background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:var(--muted);font-size:14px;line-height:1.8;margin:24px auto 0;max-width:530px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:45px 0 36px;perspective:1400px}
+.portal{--rx:0deg;--ry:0deg;--glow:50%;position:relative;isolation:isolate;min-width:0;min-height:460px;border-radius:19px;overflow:hidden;border:1px solid #d4aa583b;background:linear-gradient(145deg,#191815,#0c0c0b 65%);transform:rotateX(var(--rx)) rotateY(var(--ry));transition:transform .2s ease,border-color .3s,box-shadow .3s;box-shadow:0 24px 55px #0006}
+.portal:hover{border-color:#dfbd777a;box-shadow:0 32px 70px #000a,0 0 35px #d6aa4211}
+.portal:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at var(--glow) 20%,#deb4591c,transparent 65%)}
+.portal:after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.08;background:repeating-linear-gradient(0deg,transparent,transparent 3px,#f4dba1 4px)}
+.portal-id{position:absolute;left:28px;top:27px;color:var(--gold);font-size:10px;letter-spacing:2px}
+.status{position:absolute;right:26px;top:24px;color:#ccc0aa;font-size:10px;display:flex;align-items:center;gap:7px;border:1px solid #d8b66d2b;padding:7px 10px;border-radius:20px}
+.status:before{content:"";width:4px;height:4px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px var(--gold)}
+.scene{position:absolute;inset:72px 0 auto;height:180px;perspective:600px;pointer-events:none}
+.glow{position:absolute;width:220px;height:130px;left:calc(50% - 110px);top:50px;border-radius:50%;background:radial-gradient(ellipse,#c8964130,transparent 70%);filter:blur(12px)}
+.halo{position:absolute;width:260px;height:175px;left:calc(50% - 130px);top:22px;border:1px solid #dab56f5c;border-radius:50%;transform:rotateX(64deg) rotateZ(-22deg);box-shadow:0 0 18px #d4b16a18,inset 0 0 18px #d4b16a18}
+.halo.second{width:200px;height:200px;left:calc(50% - 100px);top:0;border-color:#dab56f29;transform:rotateY(68deg) rotateZ(34deg)}
+.core{position:absolute;width:88px;height:88px;left:calc(50% - 44px);top:35px;transform-style:preserve-3d;animation:core-turn 22s linear infinite}
+.face{position:absolute;inset:0;display:grid;place-items:center;border:1px solid #dfc385a6;background:linear-gradient(140deg,#90754855,#14130ff5 70%);color:#e4c582;font:34px Georgia;box-shadow:inset 0 0 25px #dbb36510;backface-visibility:visible}
+.front{transform:translateZ(44px)}
+.back{transform:rotateY(180deg) translateZ(44px)}
+.right{transform:rotateY(90deg) translateZ(44px)}
+.left{transform:rotateY(-90deg) translateZ(44px)}
+.upper{transform:rotateX(90deg) translateZ(44px)}
+.lower{transform:rotateX(-90deg) translateZ(44px)}
+.portal.two .core{animation-delay:-8s;animation-direction:reverse}
+.portal.two .halo{transform:rotateX(65deg) rotateZ(25deg)}
+.portal-content{position:relative;padding:262px 30px 28px}
+.category{font-size:10px;letter-spacing:3px;color:#ac966e;margin:0 0 13px}
+h2{font:400 clamp(29px,3.5vw,39px)/1.12 Georgia,serif;margin:0 0 13px;letter-spacing:-.6px;overflow-wrap:anywhere}
+.portal-content p{font-size:13px;line-height:1.7;color:var(--muted);margin:0;max-width:330px;min-height:44px}
+.enter{display:flex;align-items:center;justify-content:space-between;gap:14px;text-decoration:none;border-top:1px solid #d6b66b2e;margin-top:24px;padding-top:19px;font-size:12px;color:#f0d396;letter-spacing:.5px}
+.enter span{font-size:22px;transition:transform .25s}
+.enter:hover span{transform:translate(4px,-3px)}
+.bottom{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:23px 0 30px;border-top:1px solid #d9b4681c;color:#9f9584;font-size:11px;line-height:1.7}
+.bottom strong{font-weight:400;color:var(--gold);letter-spacing:2px}
+.bottom p{margin:0}
+.total{white-space:nowrap;font-variant-numeric:tabular-nums}
+@keyframes core-turn{from{transform:rotateX(-18deg) rotateY(25deg)}to{transform:rotateX(-18deg) rotateY(385deg)}}
+.still .core{animation:none;transform:rotateX(-18deg) rotateY(30deg)}
+.still .portal{transform:none!important}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.core{transform:rotateX(-18deg) rotateY(30deg)}}
+@media(max-width:700px){
+.topbar,main{width:calc(100% - 32px)}.topbar{min-height:90px}
+.brand strong{font-size:11px;letter-spacing:2px}.brand small{font-size:9px;letter-spacing:2px}
+.quiet{display:none}.outline{font-size:11px;padding:11px}
+.hero{padding-top:46px}.hero p{font-size:13px}
+.eyebrow{letter-spacing:3px;font-size:9px}
+.grid{grid-template-columns:1fr;gap:20px;padding-top:32px}
+.portal{min-height:430px}.portal-content{padding:245px 25px 25px}
+.portal-content h2{font-size:34px}.bottom{flex-wrap:wrap;gap:10px}
+dialog{padding:25px 20px}dialog h2{font-size:28px}.hero h1{letter-spacing:-1.5px}
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#" aria-label="Projeto 33 — início">
+    <span class="mark"><span>33</span></span>
+    <span><small>SEU UNIVERSO</small><strong>PROJETO 33</strong></span>
+  </a>
+  <nav class="top-actions" aria-label="Controles do portal">
+    <button class="quiet" id="motion" type="button" aria-pressed="true">3D ativado</button>
+    <a class="outline" href="#projetos" style="text-decoration:none">Escolher projeto ↓</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" aria-labelledby="headline">
+    <div class="eyebrow">UM PORTAL. DOIS DESTINOS.</div>
+    <h1 id="headline">Escolha o seu<br><em>próximo universo.</em></h1>
+    <p id="description">Treine sua memória em dois universos. Escolha seu próximo desafio.</p>
+  </section>
+
+  <section class="grid" id="projetos" aria-label="Escolha um projeto">
+    <article class="portal">
+      <div class="portal-id">PROJETO 33.1</div>
+      <div class="status" id="state0">Disponível</div>
+      <div class="scene" aria-hidden="true">
+        <div class="glow"></div><div class="halo"></div><div class="halo second"></div>
+        <div class="core">
+          <div class="face front">I</div><div class="face back">I</div>
+          <div class="face right"></div><div class="face left"></div>
+          <div class="face upper"></div><div class="face lower"></div>
+        </div>
+      </div>
+      <div class="portal-content">
+        <div class="category">PRIMEIRO PORTAL</div>
+        <h2 id="name0">Duelo de Caçadores</h2>
+        <p>Desafios com π, cartas, elementos e ossos. Treine solo ou em duelo no mesmo aparelho.</p>
+        <a class="enter" id="open0" href="./projeto-33-1/index.html">Entrar no Projeto 33.1 <span aria-hidden="true">↗</span></a>
+      </div>
+    </article>
+
+    <article class="portal two">
+      <div class="portal-id">PROJETO 33.2</div>
+      <div class="status" id="state1">Disponível</div>
+      <div class="scene" aria-hidden="true">
+        <div class="glow"></div><div class="halo"></div><div class="halo second"></div>
+        <div class="core">
+          <div class="face front">II</div><div class="face back">II</div>
+          <div class="face right"></div><div class="face left"></div>
+          <div class="face upper"></div><div class="face lower"></div>
+        </div>
+      </div>
+      <div class="portal-content">
+        <div class="category">SEGUNDO PORTAL</div>
+        <h2 id="name1">M52 Memory Master</h2>
+        <p>Memorização de cartas, código visual e evolução dos seus treinos. Do primeiro passo às 26 cartas.</p>
+        <a class="enter" id="open1" href="./projeto-33-2/index.html">Entrar no Projeto 33.2 <span aria-hidden="true">↗</span></a>
+      </div>
+    </article>
+  </section>
+
+  <footer class="bottom">
+    <p><strong>33 / CENTRAL DE PROJETOS</strong><br>Dois caminhos. A escolha é sua.</p>
+    <span class="total" id="total">2 projetos integrados</span>
+  </footer>
+</main>
+
+
+
+
+<script src="portal.js" defer></script>
+</body>
+</html>
